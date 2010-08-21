@@ -1,0 +1,5 @@
+content ZoteroXmlImporter           chrome/content/ZoteroXmlImporter/
+locale  ZoteroXmlImporter  en-US    chrome/locale/en-US/ZoteroXmlImporter/
+skin    ZoteroXmlImporter  default  chrome/skin/default/ZoteroXmlImporter/
+
+overlay	chrome://browser/content/browser.xul  chrome://ZoteroXmlImporter/content/overlay.xul

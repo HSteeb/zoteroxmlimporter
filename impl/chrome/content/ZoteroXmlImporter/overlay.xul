@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://ZoteroXmlImporter/skin/overlay.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://ZoteroXmlImporter/locale/importer.dtd">
+
+<overlay id="ZoteroXmlImporter-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="xml-importer-strings" src="chrome://ZoteroXmlImporter/locale/importer.properties"/>
+  </stringbundleset>
+  
+  <menupopup id="zotero-tb-actions-popup">
+    <!-- Make sure the menu separator for utilities is visible -->
+    <menuseparator id="zotero-tb-actions-utilities-separator" hidden="false"/>
+    <menuitem insertbefore="zotero-tb-actions-separator" label="&ZoteroXmlImporter.name;"
+      oncommand="Zotero.XmlImporter.import()"/>
+  </menupopup>
+  
+  <!-- Include the main extension logic -->
+  <script src="chrome://zotero/content/include.js"/>
+  <script src="chrome://ZoteroXmlImporter/content/include.js"/>
+  <script src="chrome://ZoteroXmlImporter/content/Dialog.js"/>
+  <script src="chrome://ZoteroXmlImporter/content/FileIO.js"/>
+</overlay>
