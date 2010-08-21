@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<zotero-import>
+<document>
+  <title>Reduction of 3-CNF-SAT to Perl Regular Expression Matching</title>
+  <abstractNote>3-CNF-SAT is NP-complete. If there were an efficient (polynomial-time) algorithm for computing whether or not a regex matched a certain string, we could use it to quickly compute solutions to the 3-CNF-SAT problem, and, by extension, to the knapsack problem, the travelling salesman problem, etc. etc.</abstractNote>
+  <url>http://perl.plover.com/NPC/NPC-3SAT.html</url>
+  <date>2010-03-13</date>
+  <author>Hans Dampf</author>
+  <author>Paula Paulsen</author>
+  <tag>Perl</tag>
+</document>
+</zotero-import>

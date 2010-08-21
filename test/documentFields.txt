@@ -1,0 +1,28 @@
+# Fields of zotero itemType "document"
+# Helmut Steeb 2010-08-21
+# extracted manually from
+# https://www.zotero.org/trac/browser/extension/branches/2.0/system.sql
+
+  1 url
+  2 rights
+  8 publisher
+ 14 date
+ 18 callNumber
+ 19 archiveLocation
+ 22 extra
+ 27 accessDate
+ 62 libraryCatalog
+ 87 language
+ 90 abstractNote
+110 title
+116 shortTitle
+123 archive
+
+
+creatorTypes for itemType 34 "document"
+
+  1 author
+  2 contributor
+  3 editor
+  4 translator
+ 27 reviewedAuthor
