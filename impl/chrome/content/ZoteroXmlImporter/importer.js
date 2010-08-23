@@ -128,12 +128,12 @@ Zotero.XmlImporter = {
 
       // <?xml version="1.0"?>
       // <zotero-import>
-      // <article>
+      // <document>
       //   <title>Reduction of 3-CNF-SAT</title>
-      //   <description>3-CNF-SAT is NP-complete.</description>
+      //   <abstractNote>3-CNF-SAT is NP-complete.</abstractNote>
       //   <url>http://perl.plover.com/NPC/NPC-3SAT.html</url>
       //   <date>2010-03-13</date>
-      // </article>
+      // </document>
       // </zotero-import>
 
       var root = (dom.nodeName.toLowerCase() == this.ROOTNAME && dom) || dom.getElementsByTagName(this.ROOTNAME)[0];
