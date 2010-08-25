@@ -1,0 +1,652 @@
+<?xml version='1.0'?>
+<zotero-import>
+<artwork>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<artworkMedium>artworkMedium (field #4)</artworkMedium>
+<artworkSize>artworkSize (field #5)</artworkSize>
+<callNumber>callNumber (field #6)</callNumber>
+<date>date (field #7)</date>
+<extra>extra (field #8)</extra>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<rights>rights (field #11)</rights>
+<shortTitle>shortTitle (field #12)</shortTitle>
+<title>artwork: title (field #13)</title>
+<url>url (field #14)</url>
+</artwork>
+<audioRecording>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<audioRecordingFormat>audioRecordingFormat (field #5)</audioRecordingFormat>
+<callNumber>callNumber (field #6)</callNumber>
+<date>date (field #7)</date>
+<extra>extra (field #8)</extra>
+<label>label (field #9)</label>
+<language>language (field #10)</language>
+<libraryCatalog>libraryCatalog (field #11)</libraryCatalog>
+<numberOfVolumes>numberOfVolumes (field #12)</numberOfVolumes>
+<place>place (field #13)</place>
+<rights>rights (field #14)</rights>
+<runningTime>runningTime (field #15)</runningTime>
+<seriesTitle>seriesTitle (field #16)</seriesTitle>
+<shortTitle>shortTitle (field #17)</shortTitle>
+<title>audioRecording: title (field #18)</title>
+<url>url (field #19)</url>
+<volume>volume (field #20)</volume>
+</audioRecording>
+<bill>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<billNumber>billNumber (field #2)</billNumber>
+<code>code (field #3)</code>
+<codePages>codePages (field #4)</codePages>
+<codeVolume>codeVolume (field #5)</codeVolume>
+<date>date (field #6)</date>
+<extra>extra (field #7)</extra>
+<history>history (field #8)</history>
+<language>language (field #9)</language>
+<legislativeBody>legislativeBody (field #10)</legislativeBody>
+<rights>rights (field #11)</rights>
+<section>section (field #12)</section>
+<session>session (field #13)</session>
+<shortTitle>shortTitle (field #14)</shortTitle>
+<title>bill: title (field #15)</title>
+<url>url (field #16)</url>
+</bill>
+<blogPost>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<blogTitle>blogTitle (field #2)</blogTitle>
+<date>date (field #3)</date>
+<extra>extra (field #4)</extra>
+<language>language (field #5)</language>
+<rights>rights (field #6)</rights>
+<shortTitle>shortTitle (field #7)</shortTitle>
+<title>blogPost: title (field #8)</title>
+<url>url (field #9)</url>
+<websiteType>websiteType (field #10)</websiteType>
+</blogPost>
+<book>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<edition>edition (field #7)</edition>
+<extra>extra (field #8)</extra>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<numPages>numPages (field #11)</numPages>
+<numberOfVolumes>numberOfVolumes (field #12)</numberOfVolumes>
+<place>place (field #13)</place>
+<publisher>publisher (field #14)</publisher>
+<rights>rights (field #15)</rights>
+<series>series (field #16)</series>
+<seriesNumber>seriesNumber (field #17)</seriesNumber>
+<shortTitle>shortTitle (field #18)</shortTitle>
+<title>book: title (field #19)</title>
+<url>url (field #20)</url>
+<volume>volume (field #21)</volume>
+</book>
+<bookSection>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<bookTitle>bookTitle (field #5)</bookTitle>
+<callNumber>callNumber (field #6)</callNumber>
+<date>date (field #7)</date>
+<edition>edition (field #8)</edition>
+<extra>extra (field #9)</extra>
+<language>language (field #10)</language>
+<libraryCatalog>libraryCatalog (field #11)</libraryCatalog>
+<numberOfVolumes>numberOfVolumes (field #12)</numberOfVolumes>
+<pages>pages (field #13)</pages>
+<place>place (field #14)</place>
+<publisher>publisher (field #15)</publisher>
+<rights>rights (field #16)</rights>
+<series>series (field #17)</series>
+<seriesNumber>seriesNumber (field #18)</seriesNumber>
+<shortTitle>shortTitle (field #19)</shortTitle>
+<title>bookSection: title (field #20)</title>
+<url>url (field #21)</url>
+<volume>volume (field #22)</volume>
+</bookSection>
+<case>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<caseName>caseName (field #2)</caseName>
+<court>court (field #3)</court>
+<dateDecided>dateDecided (field #4)</dateDecided>
+<docketNumber>docketNumber (field #5)</docketNumber>
+<extra>extra (field #6)</extra>
+<firstPage>firstPage (field #7)</firstPage>
+<history>history (field #8)</history>
+<language>language (field #9)</language>
+<reporter>reporter (field #10)</reporter>
+<reporterVolume>reporterVolume (field #11)</reporterVolume>
+<rights>rights (field #12)</rights>
+<shortTitle>shortTitle (field #13)</shortTitle>
+<url>url (field #14)</url>
+</case>
+<computerProgram>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<company>company (field #6)</company>
+<date>date (field #7)</date>
+<extra>extra (field #8)</extra>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<place>place (field #10)</place>
+<programmingLanguage>programmingLanguage (field #11)</programmingLanguage>
+<rights>rights (field #12)</rights>
+<seriesTitle>seriesTitle (field #13)</seriesTitle>
+<shortTitle>shortTitle (field #14)</shortTitle>
+<system>system (field #15)</system>
+<title>computerProgram: title (field #16)</title>
+<url>url (field #17)</url>
+<version>version (field #18)</version>
+</computerProgram>
+<conferencePaper>
+<DOI>DOI (field #0)</DOI>
+<ISBN>ISBN (field #1)</ISBN>
+<abstractNote>abstractNote (field #2)</abstractNote>
+<accessDate>accessDate (field #3)</accessDate>
+<archive>archive (field #4)</archive>
+<archiveLocation>archiveLocation (field #5)</archiveLocation>
+<callNumber>callNumber (field #6)</callNumber>
+<conferenceName>conferenceName (field #7)</conferenceName>
+<date>date (field #8)</date>
+<extra>extra (field #9)</extra>
+<language>language (field #10)</language>
+<libraryCatalog>libraryCatalog (field #11)</libraryCatalog>
+<pages>pages (field #12)</pages>
+<place>place (field #13)</place>
+<proceedingsTitle>proceedingsTitle (field #14)</proceedingsTitle>
+<publisher>publisher (field #15)</publisher>
+<rights>rights (field #16)</rights>
+<series>series (field #17)</series>
+<shortTitle>shortTitle (field #18)</shortTitle>
+<title>conferencePaper: title (field #19)</title>
+<url>url (field #20)</url>
+<volume>volume (field #21)</volume>
+</conferencePaper>
+<dictionaryEntry>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<dictionaryTitle>dictionaryTitle (field #7)</dictionaryTitle>
+<edition>edition (field #8)</edition>
+<extra>extra (field #9)</extra>
+<language>language (field #10)</language>
+<libraryCatalog>libraryCatalog (field #11)</libraryCatalog>
+<numberOfVolumes>numberOfVolumes (field #12)</numberOfVolumes>
+<pages>pages (field #13)</pages>
+<place>place (field #14)</place>
+<publisher>publisher (field #15)</publisher>
+<rights>rights (field #16)</rights>
+<series>series (field #17)</series>
+<seriesNumber>seriesNumber (field #18)</seriesNumber>
+<shortTitle>shortTitle (field #19)</shortTitle>
+<title>dictionaryEntry: title (field #20)</title>
+<url>url (field #21)</url>
+<volume>volume (field #22)</volume>
+</dictionaryEntry>
+<document>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<language>language (field #7)</language>
+<libraryCatalog>libraryCatalog (field #8)</libraryCatalog>
+<publisher>publisher (field #9)</publisher>
+<rights>rights (field #10)</rights>
+<shortTitle>shortTitle (field #11)</shortTitle>
+<title>document: title (field #12)</title>
+<url>url (field #13)</url>
+</document>
+<email>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<date>date (field #2)</date>
+<extra>extra (field #3)</extra>
+<language>language (field #4)</language>
+<rights>rights (field #5)</rights>
+<shortTitle>shortTitle (field #6)</shortTitle>
+<subject>subject (field #7)</subject>
+<url>url (field #8)</url>
+</email>
+<encyclopediaArticle>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<edition>edition (field #7)</edition>
+<encyclopediaTitle>encyclopediaTitle (field #8)</encyclopediaTitle>
+<extra>extra (field #9)</extra>
+<language>language (field #10)</language>
+<libraryCatalog>libraryCatalog (field #11)</libraryCatalog>
+<numberOfVolumes>numberOfVolumes (field #12)</numberOfVolumes>
+<pages>pages (field #13)</pages>
+<place>place (field #14)</place>
+<publisher>publisher (field #15)</publisher>
+<rights>rights (field #16)</rights>
+<series>series (field #17)</series>
+<seriesNumber>seriesNumber (field #18)</seriesNumber>
+<shortTitle>shortTitle (field #19)</shortTitle>
+<title>encyclopediaArticle: title (field #20)</title>
+<url>url (field #21)</url>
+<volume>volume (field #22)</volume>
+</encyclopediaArticle>
+<film>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<distributor>distributor (field #6)</distributor>
+<extra>extra (field #7)</extra>
+<genre>genre (field #8)</genre>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<rights>rights (field #11)</rights>
+<runningTime>runningTime (field #12)</runningTime>
+<shortTitle>shortTitle (field #13)</shortTitle>
+<title>film: title (field #14)</title>
+<url>url (field #15)</url>
+<videoRecordingFormat>videoRecordingFormat (field #16)</videoRecordingFormat>
+</film>
+<forumPost>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<date>date (field #2)</date>
+<extra>extra (field #3)</extra>
+<forumTitle>forumTitle (field #4)</forumTitle>
+<language>language (field #5)</language>
+<postType>postType (field #6)</postType>
+<rights>rights (field #7)</rights>
+<shortTitle>shortTitle (field #8)</shortTitle>
+<title>forumPost: title (field #9)</title>
+<url>url (field #10)</url>
+</forumPost>
+<hearing>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<committee>committee (field #2)</committee>
+<date>date (field #3)</date>
+<documentNumber>documentNumber (field #4)</documentNumber>
+<extra>extra (field #5)</extra>
+<history>history (field #6)</history>
+<language>language (field #7)</language>
+<legislativeBody>legislativeBody (field #8)</legislativeBody>
+<numberOfVolumes>numberOfVolumes (field #9)</numberOfVolumes>
+<pages>pages (field #10)</pages>
+<place>place (field #11)</place>
+<publisher>publisher (field #12)</publisher>
+<rights>rights (field #13)</rights>
+<session>session (field #14)</session>
+<shortTitle>shortTitle (field #15)</shortTitle>
+<title>hearing: title (field #16)</title>
+<url>url (field #17)</url>
+</hearing>
+<instantMessage>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<date>date (field #2)</date>
+<extra>extra (field #3)</extra>
+<language>language (field #4)</language>
+<rights>rights (field #5)</rights>
+<shortTitle>shortTitle (field #6)</shortTitle>
+<title>instantMessage: title (field #7)</title>
+<url>url (field #8)</url>
+</instantMessage>
+<interview>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<interviewMedium>interviewMedium (field #7)</interviewMedium>
+<language>language (field #8)</language>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<rights>rights (field #10)</rights>
+<shortTitle>shortTitle (field #11)</shortTitle>
+<title>interview: title (field #12)</title>
+<url>url (field #13)</url>
+</interview>
+<journalArticle>
+<DOI>DOI (field #0)</DOI>
+<ISSN>ISSN (field #1)</ISSN>
+<abstractNote>abstractNote (field #2)</abstractNote>
+<accessDate>accessDate (field #3)</accessDate>
+<archive>archive (field #4)</archive>
+<archiveLocation>archiveLocation (field #5)</archiveLocation>
+<callNumber>callNumber (field #6)</callNumber>
+<date>date (field #7)</date>
+<extra>extra (field #8)</extra>
+<issue>issue (field #9)</issue>
+<journalAbbreviation>journalAbbreviation (field #10)</journalAbbreviation>
+<language>language (field #11)</language>
+<libraryCatalog>libraryCatalog (field #12)</libraryCatalog>
+<pages>pages (field #13)</pages>
+<publicationTitle>publicationTitle (field #14)</publicationTitle>
+<rights>rights (field #15)</rights>
+<series>series (field #16)</series>
+<seriesText>seriesText (field #17)</seriesText>
+<seriesTitle>seriesTitle (field #18)</seriesTitle>
+<shortTitle>shortTitle (field #19)</shortTitle>
+<title>journalArticle: title (field #20)</title>
+<url>url (field #21)</url>
+<volume>volume (field #22)</volume>
+</journalArticle>
+<letter>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<language>language (field #7)</language>
+<letterType>letterType (field #8)</letterType>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<rights>rights (field #10)</rights>
+<shortTitle>shortTitle (field #11)</shortTitle>
+<title>letter: title (field #12)</title>
+<url>url (field #13)</url>
+</letter>
+<magazineArticle>
+<ISSN>ISSN (field #0)</ISSN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<extra>extra (field #7)</extra>
+<issue>issue (field #8)</issue>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<pages>pages (field #11)</pages>
+<publicationTitle>publicationTitle (field #12)</publicationTitle>
+<rights>rights (field #13)</rights>
+<shortTitle>shortTitle (field #14)</shortTitle>
+<title>magazineArticle: title (field #15)</title>
+<url>url (field #16)</url>
+<volume>volume (field #17)</volume>
+</magazineArticle>
+<manuscript>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<language>language (field #7)</language>
+<libraryCatalog>libraryCatalog (field #8)</libraryCatalog>
+<manuscriptType>manuscriptType (field #9)</manuscriptType>
+<numPages>numPages (field #10)</numPages>
+<place>place (field #11)</place>
+<rights>rights (field #12)</rights>
+<shortTitle>shortTitle (field #13)</shortTitle>
+<title>manuscript: title (field #14)</title>
+<url>url (field #15)</url>
+</manuscript>
+<map>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<edition>edition (field #7)</edition>
+<extra>extra (field #8)</extra>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<mapType>mapType (field #11)</mapType>
+<place>place (field #12)</place>
+<publisher>publisher (field #13)</publisher>
+<rights>rights (field #14)</rights>
+<scale>scale (field #15)</scale>
+<seriesTitle>seriesTitle (field #16)</seriesTitle>
+<shortTitle>shortTitle (field #17)</shortTitle>
+<title>map: title (field #18)</title>
+<url>url (field #19)</url>
+</map>
+<newspaperArticle>
+<ISSN>ISSN (field #0)</ISSN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<edition>edition (field #7)</edition>
+<extra>extra (field #8)</extra>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<pages>pages (field #11)</pages>
+<place>place (field #12)</place>
+<publicationTitle>publicationTitle (field #13)</publicationTitle>
+<rights>rights (field #14)</rights>
+<section>section (field #15)</section>
+<shortTitle>shortTitle (field #16)</shortTitle>
+<title>newspaperArticle: title (field #17)</title>
+<url>url (field #18)</url>
+</newspaperArticle>
+<note>
+</note>
+<patent>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<applicationNumber>applicationNumber (field #2)</applicationNumber>
+<assignee>assignee (field #3)</assignee>
+<country>country (field #4)</country>
+<extra>extra (field #5)</extra>
+<filingDate>filingDate (field #6)</filingDate>
+<issueDate>issueDate (field #7)</issueDate>
+<issuingAuthority>issuingAuthority (field #8)</issuingAuthority>
+<language>language (field #9)</language>
+<legalStatus>legalStatus (field #10)</legalStatus>
+<pages>pages (field #11)</pages>
+<patentNumber>patentNumber (field #12)</patentNumber>
+<place>place (field #13)</place>
+<priorityNumbers>priorityNumbers (field #14)</priorityNumbers>
+<references>references (field #15)</references>
+<rights>rights (field #16)</rights>
+<shortTitle>shortTitle (field #17)</shortTitle>
+<title>patent: title (field #18)</title>
+<url>url (field #19)</url>
+</patent>
+<podcast>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<audioFileType>audioFileType (field #2)</audioFileType>
+<episodeNumber>episodeNumber (field #3)</episodeNumber>
+<extra>extra (field #4)</extra>
+<language>language (field #5)</language>
+<rights>rights (field #6)</rights>
+<runningTime>runningTime (field #7)</runningTime>
+<seriesTitle>seriesTitle (field #8)</seriesTitle>
+<shortTitle>shortTitle (field #9)</shortTitle>
+<title>podcast: title (field #10)</title>
+<url>url (field #11)</url>
+</podcast>
+<presentation>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<date>date (field #2)</date>
+<extra>extra (field #3)</extra>
+<language>language (field #4)</language>
+<meetingName>meetingName (field #5)</meetingName>
+<place>place (field #6)</place>
+<presentationType>presentationType (field #7)</presentationType>
+<rights>rights (field #8)</rights>
+<shortTitle>shortTitle (field #9)</shortTitle>
+<title>presentation: title (field #10)</title>
+<url>url (field #11)</url>
+</presentation>
+<radioBroadcast>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<audioRecordingFormat>audioRecordingFormat (field #4)</audioRecordingFormat>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<episodeNumber>episodeNumber (field #7)</episodeNumber>
+<extra>extra (field #8)</extra>
+<language>language (field #9)</language>
+<libraryCatalog>libraryCatalog (field #10)</libraryCatalog>
+<network>network (field #11)</network>
+<place>place (field #12)</place>
+<programTitle>programTitle (field #13)</programTitle>
+<rights>rights (field #14)</rights>
+<runningTime>runningTime (field #15)</runningTime>
+<shortTitle>shortTitle (field #16)</shortTitle>
+<title>radioBroadcast: title (field #17)</title>
+<url>url (field #18)</url>
+</radioBroadcast>
+<report>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<institution>institution (field #7)</institution>
+<language>language (field #8)</language>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<pages>pages (field #10)</pages>
+<place>place (field #11)</place>
+<reportNumber>reportNumber (field #12)</reportNumber>
+<reportType>reportType (field #13)</reportType>
+<rights>rights (field #14)</rights>
+<seriesTitle>seriesTitle (field #15)</seriesTitle>
+<shortTitle>shortTitle (field #16)</shortTitle>
+<title>report: title (field #17)</title>
+<url>url (field #18)</url>
+</report>
+<statute>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<code>code (field #2)</code>
+<codeNumber>codeNumber (field #3)</codeNumber>
+<dateEnacted>dateEnacted (field #4)</dateEnacted>
+<extra>extra (field #5)</extra>
+<history>history (field #6)</history>
+<language>language (field #7)</language>
+<nameOfAct>nameOfAct (field #8)</nameOfAct>
+<pages>pages (field #9)</pages>
+<publicLawNumber>publicLawNumber (field #10)</publicLawNumber>
+<rights>rights (field #11)</rights>
+<section>section (field #12)</section>
+<session>session (field #13)</session>
+<shortTitle>shortTitle (field #14)</shortTitle>
+<url>url (field #15)</url>
+</statute>
+<thesis>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<extra>extra (field #6)</extra>
+<language>language (field #7)</language>
+<libraryCatalog>libraryCatalog (field #8)</libraryCatalog>
+<numPages>numPages (field #9)</numPages>
+<place>place (field #10)</place>
+<rights>rights (field #11)</rights>
+<shortTitle>shortTitle (field #12)</shortTitle>
+<thesisType>thesisType (field #13)</thesisType>
+<title>thesis: title (field #14)</title>
+<university>university (field #15)</university>
+<url>url (field #16)</url>
+</thesis>
+<tvBroadcast>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<archive>archive (field #2)</archive>
+<archiveLocation>archiveLocation (field #3)</archiveLocation>
+<callNumber>callNumber (field #4)</callNumber>
+<date>date (field #5)</date>
+<episodeNumber>episodeNumber (field #6)</episodeNumber>
+<extra>extra (field #7)</extra>
+<language>language (field #8)</language>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<network>network (field #10)</network>
+<place>place (field #11)</place>
+<programTitle>programTitle (field #12)</programTitle>
+<rights>rights (field #13)</rights>
+<runningTime>runningTime (field #14)</runningTime>
+<shortTitle>shortTitle (field #15)</shortTitle>
+<title>tvBroadcast: title (field #16)</title>
+<url>url (field #17)</url>
+<videoRecordingFormat>videoRecordingFormat (field #18)</videoRecordingFormat>
+</tvBroadcast>
+<videoRecording>
+<ISBN>ISBN (field #0)</ISBN>
+<abstractNote>abstractNote (field #1)</abstractNote>
+<accessDate>accessDate (field #2)</accessDate>
+<archive>archive (field #3)</archive>
+<archiveLocation>archiveLocation (field #4)</archiveLocation>
+<callNumber>callNumber (field #5)</callNumber>
+<date>date (field #6)</date>
+<extra>extra (field #7)</extra>
+<language>language (field #8)</language>
+<libraryCatalog>libraryCatalog (field #9)</libraryCatalog>
+<numberOfVolumes>numberOfVolumes (field #10)</numberOfVolumes>
+<place>place (field #11)</place>
+<rights>rights (field #12)</rights>
+<runningTime>runningTime (field #13)</runningTime>
+<seriesTitle>seriesTitle (field #14)</seriesTitle>
+<shortTitle>shortTitle (field #15)</shortTitle>
+<studio>studio (field #16)</studio>
+<title>videoRecording: title (field #17)</title>
+<url>url (field #18)</url>
+<videoRecordingFormat>videoRecordingFormat (field #19)</videoRecordingFormat>
+<volume>volume (field #20)</volume>
+</videoRecording>
+<webpage>
+<abstractNote>abstractNote (field #0)</abstractNote>
+<accessDate>accessDate (field #1)</accessDate>
+<date>date (field #2)</date>
+<extra>extra (field #3)</extra>
+<language>language (field #4)</language>
+<rights>rights (field #5)</rights>
+<shortTitle>shortTitle (field #6)</shortTitle>
+<title>webpage: title (field #7)</title>
+<url>url (field #8)</url>
+<websiteTitle>websiteTitle (field #9)</websiteTitle>
+<websiteType>websiteType (field #10)</websiteType>
+</webpage>
+</zotero-import>
