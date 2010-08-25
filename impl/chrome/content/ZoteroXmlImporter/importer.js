@@ -1,6 +1,6 @@
 // ===================================================================
 // ZoteroXmlImporter
-// Helmut Steeb 2010-02-21
+// Helmut Steeb 2010-08-21
 // Data fields: see https://www.zotero.org/trac/browser/extension/branches/2.0/system.sql
 
 Zotero.XmlImporter = {
@@ -113,7 +113,7 @@ Zotero.XmlImporter = {
         filters: [Strings.getString("filedlg.filter"), "*.xml"],
         filterIndex: 0,
 //TODO: file path used only for testing
-        displayDirectory: Moz.FileIO.open("/steeb/helmut/prj/zotero/impl/ZoteroXmlImporter/test")
+        displayDirectory: Moz.FileIO.open("/steeb/helmut/prj/zotero/ZoteroXmlImporter/test")
       };
       var path = Moz.Dialog.fileDialog(args);
       if (!path) {
@@ -124,6 +124,35 @@ Zotero.XmlImporter = {
         alert(Strings.getString("err.loadFailed") + path);
         return;
       }
+
+      /// overlay.js:
+      /// var progressWin = new Zotero.ProgressWindow();
+      /// progressWin.changeHeadline(Zotero.getString('ingester.scraping'));
+      /// var icon = 'chrome://zotero/skin/treeitem-webpage.png';
+      /// progressWin.addLines(doc.title, icon)
+      /// progressWin.show();
+      /// progressWin.startCloseTimer();
+
+
+      /// fileInterface.js
+///	Zotero.UnresponsiveScriptIndicator.disable();
+///	Zotero.UnresponsiveScriptIndicator.enable();
+
+
+      /// / Handles the display of a progress indicator
+      /// otero_File_Interface.Progress = new function() {
+      ///        this.show = show;
+      ///        this.close = close;
+      ///        
+      ///        function show(headline) {
+      ///        	Zotero.showZoteroPaneProgressMeter(headline)
+      ///        }
+      ///        
+      ///        function close() {
+      ///        	Zotero.hideZoteroPaneOverlay();
+      ///        }
+      /// 
+
       //alert("Loaded DOM from " + path);
 
       // <?xml version="1.0"?>
@@ -144,14 +173,14 @@ Zotero.XmlImporter = {
       var Items = root.childNodes;
       var count = 0;
       var Failed = [];
+alert("Now processing " + Items.length + " top-level DOM nodes.");
       for (var i = 0; i < Items.length; ++i) {
         var Item = Items[i];
         if (Item.nodeType != Node.ELEMENT_NODE) {
           continue;
         }
         var itemType = Item.nodeName; // "article"
-
-        var Data = [];
+        var Data = {};
         var Tags = [];
         this._readData(Item, Data, Tags); // ***
 
