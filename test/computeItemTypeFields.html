@@ -34,16 +34,23 @@ table {
 <body>
 <h1>Zotero XML Importer - compute item type fields</h1>
 
-<p>This page analyzes a list of SQL statements, like</p>
-<pre>INSERT INTO itemTypes VALUES (1,'note',NULL,0);
-INSERT INTO fields VALUES (1,'url',NULL);
-INSERT INTO itemTypeFields VALUES (2, 110, NULL, 1);</pre>
-<p>which may come from the
-<a target='_top' href='https://www.zotero.org/trac/browser/extension/branches/2.0/system.sql'>zotero 2.0 system.sql file</a> and computes an HTML table which lists for each zotero <strong>field</strong> the allowed <strong>item types</strong>.</p>
-<p> Just paste the entire SQL file here, then press
+<p>This page computes the available <strong>fields</strong> 
+for each <a target='_top' href='http://www.zotero.org'>zotero</a> <strong>item type</strong>.</p>
+<p>Input: a list of SQL statements, typically from a
+<a target='_top' href='https://www.zotero.org/trac/browser/extension/branches/2.0/system.sql'>zotero 2.0 system.sql file</a>, like</p>
+<pre>  INSERT INTO itemTypes VALUES (1,'note',NULL,0);
+  INSERT INTO fields VALUES (1,'url',NULL);
+  INSERT INTO itemTypeFields VALUES (2, 110, NULL, 1);
+</pre>
+<hr/>
+<p>
  <input type="button" value="Compute HTML"  onclick="Compute('html');"/>
  <input type="button" value="Compute test file"  onclick="Compute('testfile');"/>
 </p>
+<p>
+ <input type="checkbox" name="withCreators" id="withCreators" value="withCreators">with creators</input>
+</p>
+<p>Input SQL statements (e.g. entire SQL file):</p>
 <textarea id="sql" name="sql" type="text" cols='80' rows='30'>
 Paste SQL statements here</textarea>
 <hr/>
