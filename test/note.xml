@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<zotero-import>
+<note>
+<text>My example note with <strong>strong</strong> text,
+Миссионерский Союз "Свет на Востоке" любезно предоставил тексты в электронной форме
+(в них выбор библейских текстов соответствует русской Библии).
+A list with
+<ul>
+<li>item1</li>
+<li>item2</li>
+</ul>
+</text>
+<tag>Tag even</tag>
+<tag>Category B</tag>
+</note>
+</zotero-import>
