@@ -596,6 +596,16 @@
 <tag>Tag odd</tag>
 <tag>Category A</tag>
 </newspaperArticle>
+<note>
+<text>My example note with <strong>strong</strong> text, a list with
+<ul>
+<li>item1</li>
+<li>item2</li>
+</ul>
+</text>
+<tag>Tag even</tag>
+<tag>Category B</tag>
+</note>
 <patent>
 <abstractNote>abstractNote...</abstractNote>
 <accessDate>accessDate...</accessDate>
