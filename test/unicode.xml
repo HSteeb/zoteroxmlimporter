@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<zotero-import>
+<artwork>
+<abstractNote>abstractNote...</abstractNote>
+<accessDate>accessDate...</accessDate>
+<archive>archive...</archive>
+<archiveLocation>archiveLocation...</archiveLocation>
+<artworkMedium>artworkMedium...</artworkMedium>
+<artworkSize>artworkSize...</artworkSize>
+<callNumber>callNumber...</callNumber>
+<date>date...</date>
+<extra>extra...</extra>
+<language>language...</language>
+<libraryCatalog>libraryCatalog...</libraryCatalog>
+<rights>rights...</rights>
+<shortTitle>shortTitle...</shortTitle>
+<title>artwork: Кто любит отца или мать более, нежели Меня, недостоин Меня title...</title>
+<url>url...</url>
+<artist>artist...</artist>
+<contributor>contributor...</contributor>
+<tag>Tag odd</tag>
+<tag>Category A</tag>
+<note>
+<text>My example note 11111 with <strong>strong</strong> text, a list with
+Кто любит отца или мать более, нежели Меня, недостоин Меня
+<ul>
+<li>item1</li>
+<li>item2</li>
+</ul>
+</text>
+<tag>Tag even</tag>
+<tag>Category B</tag>
+</note>
+<note>
+<text>My example note 22222 with <strong>strong</strong> text, a list with
+<ul>
+<li>item1</li>
+<li>item2</li>
+</ul>
+</text>
+<tag>Tag even</tag>
+<tag>Category B</tag>
+</note>
+</artwork>
+</zotero-import>

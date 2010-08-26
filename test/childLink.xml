@@ -1,0 +1,26 @@
+<?xml version='1.0'?>
+<zotero-import>
+<artwork>
+<abstractNote>abstractNote...</abstractNote>
+<accessDate>accessDate...</accessDate>
+<archive>archive...</archive>
+<archiveLocation>archiveLocation...</archiveLocation>
+<artworkMedium>artworkMedium...</artworkMedium>
+<artworkSize>artworkSize...</artworkSize>
+<callNumber>callNumber...</callNumber>
+<date>date...</date>
+<extra>extra...</extra>
+<language>language...</language>
+<libraryCatalog>libraryCatalog...</libraryCatalog>
+<rights>rights...</rights>
+<shortTitle>shortTitle...</shortTitle>
+<title>artwork: title...</title>
+<url>url...</url>
+<artist>artist...</artist>
+<contributor>contributor...</contributor>
+<tag>Tag odd</tag>
+<tag>Category A</tag>
+<link>http://test.artwork.org</link>
+<link>http://test2.artwork.com</link>
+</artwork>
+</zotero-import>
