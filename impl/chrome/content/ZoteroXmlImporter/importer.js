@@ -68,10 +68,26 @@ Zotero.XmlImporter = {
     }
   },
 
-  _readData: function(Item, Data, Tags) {
-    // file the Data object from the child elements
-    // like
-    //   <title>Reduction of 3-CNF-SAT</title>
+  _readNodeTextChildren: function(Field)
+  {
+    // serialize all children of <text> (do not include <text>)
+    var text = "";
+    for (var Child = Field.firstChild; Child; Child = Child.nextSibling) {
+      text += this.XMLSerializer.serializeToString(Child);
+    }
+    return text;    
+  },
+
+  // fill the Data and Tags objects from the child elements of Item
+  // - Item: like
+  //   <document><title>Reduction of 3-CNF-SAT</title>...</document>
+  // - Data:
+  //   for Item.nodeName == "note", puts note text into Data.text
+  // - Tags: array of tag strings, taken from <tag> child elements of Item
+  // - Notes: array of note (rich text, not checked) strings, taken from <note> child elements of Item
+  // - Attachments: array of (URI, not checked) strings, taken from <attachment> child elements of Item
+  _readData: function(Item, Data, Tags, Notes, Links)
+  {
 
     for (var Field = Item.firstChild; Field; Field = Field.nextSibling) {
       if (!Field.firstChild) { continue; }
@@ -83,12 +99,7 @@ Zotero.XmlImporter = {
         // <tag>My Tag</tag>
         // </note>
         if (name == "text") {
-          // serialize all children of <text> (do not include <text>)
-          var text = "";
-          for (var Child = Field.firstChild; Child; Child = Child.nextSibling) {
-            text += this.XMLSerializer.serializeToString(Child);
-          }
-          Data[name] = text;
+          Data[name] = this._readNodeTextChildren(Field);
           continue;
         }
         if (name != "tag") {
@@ -104,9 +115,29 @@ Zotero.XmlImporter = {
 
       // remember tags in separate array
       if (name == "tag") {
+        // <tag>My Tag</tag>
         Tags.push(value);
         continue;   
       }
+
+      // remember notes in separate array
+      if (name == "note") {
+        // <document>
+        // <note>content <em>emphasized</em></note>
+        // </document>
+        Notes.push(this._readNodeTextChildren(Field));
+        continue;   
+      }
+
+      // remember links in separate array (no child note supported yet)
+      if (name == "link") {
+        // <document>
+        // <link>http://example.com</link>
+        // </document>
+        Links.push(value);
+        continue;   
+      }
+
       if (this.CREATORTYPES[name]) {
         // value for creators: [firstName, lastName, creatorType, fieldMode]
         // cf. Zotero.Creator.prototype.save and Zotero.Creator.prototype.serialize in xpcom/data/creator.js
@@ -125,6 +156,50 @@ Zotero.XmlImporter = {
     }
   },
 
+  _addTags: function(zItem, Tags)
+  {
+    for (var t = 0, len = Tags.length; t < len; ++t) {
+      zItem.addTag(Tags[t]);
+    }
+  },
+
+  _addNote: function(text, parentItem)
+  {
+    var nItem = new Zotero.Item('note');
+    //TODO item.libraryID = this.getSelectedLibraryID();
+    nItem.setNote(text);
+    if (parentItem) {
+      nItem.setSource(parentItem.id);
+    }
+    return nItem;
+  },
+
+  _addChildNotes: function(zItem, Notes)
+  {
+    for (var i = 0, len = Notes.length; i < len; ++i) {
+      var nItem = this._addNote(Notes[i], zItem);
+      nItem.save();
+    }
+  },
+
+  _addChildLinks: function(zItem, Links)
+  {
+    for (var i = 0, len = Links.length; i < len; ++i) {
+      // see translate.js _itemDone()
+      try {
+      	var myID = Zotero.Attachments.linkFromURL(Links[i], zItem.id
+            // (item.mimeType ? item.mimeType : undefined),
+            // (item.title ? item.title : undefined
+          );
+      }
+      catch (e) {
+      	//TODO Zotero.debug("Translate: Error adding attachment "+item.url, 2);
+      	return;
+      }
+    }
+  },
+
+  // For item creation, cf. Zotero.Translate.prototype._itemDone
   import: function() {
     var file;
     var Strings = document.getElementById("xml-importer-strings");
@@ -148,19 +223,13 @@ Zotero.XmlImporter = {
         return;
       }
 
-      ///		if (link) {
-      ///			Zotero.Attachments.linkFromDocument(window.content.document, itemID);
-      ///		}
-      ///		else {
-      ///			Zotero.Attachments.importFromDocument(window.content.document, itemID);
-      ///		}
-
       var root = (dom.nodeName.toLowerCase() == this.ROOTNAME && dom) || dom.getElementsByTagName(this.ROOTNAME)[0];
       if (!root) {
         alert(Strings.getString("err.notZoteroFile"));
         return;
       }
 
+      // Items := all child elements of root node
       var _RootChildNodes = root.childNodes;
       var Items = [];
       for (var r = 0, len = _RootChildNodes.length; r < len; ++r) {
@@ -169,6 +238,7 @@ Zotero.XmlImporter = {
         }
       }
 
+      // setup progress meter
       // cf. zotero/browser.js, zotero/overlay.js, zotero/xpcom/progressWindow.js
       progressWin = new Zotero.ProgressWindow();
       progressWin.changeHeadline(Strings.getString("import.headline"));
@@ -183,6 +253,7 @@ Zotero.XmlImporter = {
 
       Zotero.DB.beginTransaction();
 
+      // import each item
       var count = 0;
       var Failed = [];
       for (var i = 0; i < Items.length; ++i) {
@@ -191,28 +262,33 @@ Zotero.XmlImporter = {
         var itemType = Item.nodeName; // "article"
         var Data = {};
         var Tags = [];
-        this._readData(Item, Data, Tags); // ***
+        var Notes = [];
+        var Links = [];
+
+        this._readData(Item, Data, Tags, Notes, Links); // ***
 
         // alert("Adding " + itemType + ": " + Data.title);
-        var zItem;
         if (itemType == "note") {
-          var text = Data["text"];
-          zItem = new Zotero.Item('note');
-          //TODO item.libraryID = this.getSelectedLibraryID();
-          zItem.setNote(text);
-          zItem.save();
+          // top-level note
+          var zItem = this._addNote(Data["text"]);
+          var id = zItem.save(); // "Cannot add tag to unsaved item..."
+          zItem = Zotero.Items.get(id);
+          this._addTags(zItem, Tags);
+          ++count;
         }
         else {
-          zItem = Zotero.Items.add(itemType, Data); // returns a Zotero.Item instance
+          // item except top-level note
+          var zItem = Zotero.Items.add(itemType, Data); // returns a Zotero.Item instance, already save()'d!
           if (!zItem) {
             Failed.push(itemType + ": " + Data.title);
           }
-        }
-        if (zItem) {
-          for (var t = 0; t < Tags.length; ++t) {
-            zItem.addTag(Tags[t]);
+          else {
+            this._addTags(zItem, Tags);
+            this._addChildNotes(zItem, Notes);
+            // TODO no note for child link supported yet!
+            this._addChildLinks(zItem, Links);
+           ++count;
           }
-          ++count;
         }
       } // for Items
 
@@ -229,8 +305,8 @@ Zotero.XmlImporter = {
     }
     catch (e) {
       if (progressWin) {
-        progressWin.changeHeadline(Strings.getString("import.error"));
-        progressWin.progress.startCloseTimer();
+        progressWin.changeHeadline(Strings.getString("import.error") + " " + e);
+        progressWin.startCloseTimer();
       }
       throw e;
     }
