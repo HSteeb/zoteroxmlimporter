@@ -45,6 +45,7 @@ Zotero.XmlImporter = {
     for (var i = 0; i < this._CREATORTYPES.length; ++i) {
       this.CREATORTYPES[this._CREATORTYPES[i]] = 1;
     }
+    this.XMLSerializer = new XMLSerializer();
   },
   
   loadXML: function(url) {
@@ -73,32 +74,53 @@ Zotero.XmlImporter = {
     //   <title>Reduction of 3-CNF-SAT</title>
 
     for (var Field = Item.firstChild; Field; Field = Field.nextSibling) {
-      if (Field.firstChild && Field.firstChild.data) {
-        var name = Field.nodeName; // "title"
-//TODO protect XML (?)
-        var value = Field.firstChild.data; // "Reduction of 3-CNF-SAT"
+      if (!Field.firstChild) { continue; }
 
-        // remember tags in separate array
-        if (name == "tag") {
-          Tags.push(value);
-          continue;   
-        }
-
-        if (this.CREATORTYPES[name]) {
-          // value for creators: [firstName, lastName, creatorType, fieldMode]
-          // cf. Zotero.Creator.prototype.save and Zotero.Creator.prototype.serialize in xpcom/data/creator.js
-          // fieldmode == 1 is "single-field mode" => firstName must be empty, it is ignored
-          if (!Data["creators"]) {
-            // assign first value
-            Data["creators"] = [];
+      var name = Field.nodeName; // "title"
+      if (Item.nodeName == "note") {
+        // <note>
+        // <text>content <em>emphasized</em></text>
+        // <tag>My Tag</tag>
+        // </note>
+        if (name == "text") {
+          // serialize all children of <text> (do not include <text>)
+          var text = "";
+          for (var Child = Field.firstChild; Child; Child = Child.nextSibling) {
+            text += this.XMLSerializer.serializeToString(Child);
           }
+          Data[name] = text;
+          continue;
+        }
+        if (name != "tag") {
+          continue;
+        }
+      }
+
+//TODO protect XML (?)
+      var value = Field.firstChild.data; // "Reduction of 3-CNF-SAT"
+      if (!value) {
+        continue;
+      }
+
+      // remember tags in separate array
+      if (name == "tag") {
+        Tags.push(value);
+        continue;   
+      }
+      if (this.CREATORTYPES[name]) {
+        // value for creators: [firstName, lastName, creatorType, fieldMode]
+        // cf. Zotero.Creator.prototype.save and Zotero.Creator.prototype.serialize in xpcom/data/creator.js
+        // fieldmode == 1 is "single-field mode" => firstName must be empty, it is ignored
+        if (!Data["creators"]) {
+          // assign first value
+          Data["creators"] = [];
+        }
 //TODO firstName / lastName stuff (for now, one string only)
-          Data["creators"].push(["", value, name, 1]);
-        }
-        else {
+        Data["creators"].push(["", value, name, 1]);
+      }
+      else {
 //TODO check on erroneous multiple occurrence
-          Data[name] = value;
-        }
+        Data[name] = value;
       }
     }
   },
@@ -106,6 +128,7 @@ Zotero.XmlImporter = {
   import: function() {
     var file;
     var Strings = document.getElementById("xml-importer-strings");
+    var progressWin;
     try {
       var args = {
         title: Strings.getString("dlg.open.title"),
@@ -125,71 +148,67 @@ Zotero.XmlImporter = {
         return;
       }
 
-      /// overlay.js:
-      /// var progressWin = new Zotero.ProgressWindow();
-      /// progressWin.changeHeadline(Zotero.getString('ingester.scraping'));
-      /// var icon = 'chrome://zotero/skin/treeitem-webpage.png';
-      /// progressWin.addLines(doc.title, icon)
-      /// progressWin.show();
-      /// progressWin.startCloseTimer();
-
-
-      /// fileInterface.js
-///	Zotero.UnresponsiveScriptIndicator.disable();
-///	Zotero.UnresponsiveScriptIndicator.enable();
-
-
-      /// / Handles the display of a progress indicator
-      /// otero_File_Interface.Progress = new function() {
-      ///        this.show = show;
-      ///        this.close = close;
-      ///        
-      ///        function show(headline) {
-      ///        	Zotero.showZoteroPaneProgressMeter(headline)
-      ///        }
-      ///        
-      ///        function close() {
-      ///        	Zotero.hideZoteroPaneOverlay();
-      ///        }
-      /// 
-
-      //alert("Loaded DOM from " + path);
-
-      // <?xml version="1.0"?>
-      // <zotero-import>
-      // <document>
-      //   <title>Reduction of 3-CNF-SAT</title>
-      //   <abstractNote>3-CNF-SAT is NP-complete.</abstractNote>
-      //   <url>http://perl.plover.com/NPC/NPC-3SAT.html</url>
-      //   <date>2010-03-13</date>
-      // </document>
-      // </zotero-import>
+      ///		if (link) {
+      ///			Zotero.Attachments.linkFromDocument(window.content.document, itemID);
+      ///		}
+      ///		else {
+      ///			Zotero.Attachments.importFromDocument(window.content.document, itemID);
+      ///		}
 
       var root = (dom.nodeName.toLowerCase() == this.ROOTNAME && dom) || dom.getElementsByTagName(this.ROOTNAME)[0];
       if (!root) {
         alert(Strings.getString("err.notZoteroFile"));
         return;
       }
-      var Items = root.childNodes;
+
+      var _RootChildNodes = root.childNodes;
+      var Items = [];
+      for (var r = 0, len = _RootChildNodes.length; r < len; ++r) {
+        if (_RootChildNodes[r].nodeType == Node.ELEMENT_NODE) {
+          Items.push(_RootChildNodes[r]);
+        }
+      }
+
+      // cf. zotero/browser.js, zotero/overlay.js, zotero/xpcom/progressWindow.js
+      progressWin = new Zotero.ProgressWindow();
+      progressWin.changeHeadline(Strings.getString("import.headline"));
+      progressWin.addLines(Strings.getString("import.description").replace(/%d/, Items.length));
+      progressWin.show();
+
+      // Use of progress meter cf. zotero/fileInterface.js
+      // [noprogress] := the progress meter is shown initially, but not updated (even within 10 seconds)
+      // Zotero.UnresponsiveScriptIndicator.disable();
+      // var determinate = true;
+      // Zotero.showZoteroPaneProgressMeter(Strings.getString("importing").replace(/%d/, Items.length), determinate);
+
+      Zotero.DB.beginTransaction();
+
       var count = 0;
       var Failed = [];
-alert("Now processing " + Items.length + " top-level DOM nodes.");
       for (var i = 0; i < Items.length; ++i) {
+        // [noprogress] Zotero.updateZoteroPaneProgressMeter((100 * i) / Items.length);
         var Item = Items[i];
-        if (Item.nodeType != Node.ELEMENT_NODE) {
-          continue;
-        }
         var itemType = Item.nodeName; // "article"
         var Data = {};
         var Tags = [];
         this._readData(Item, Data, Tags); // ***
 
         // alert("Adding " + itemType + ": " + Data.title);
-        var zItem = Zotero.Items.add(itemType, Data); // returns a Zotero.Item instance
-        if (!zItem) {
-          Failed.push(itemType + ": " + Data.title);
+        var zItem;
+        if (itemType == "note") {
+          var text = Data["text"];
+          zItem = new Zotero.Item('note');
+          //TODO item.libraryID = this.getSelectedLibraryID();
+          zItem.setNote(text);
+          zItem.save();
         }
         else {
+          zItem = Zotero.Items.add(itemType, Data); // returns a Zotero.Item instance
+          if (!zItem) {
+            Failed.push(itemType + ": " + Data.title);
+          }
+        }
+        if (zItem) {
           for (var t = 0; t < Tags.length; ++t) {
             zItem.addTag(Tags[t]);
           }
@@ -202,10 +221,17 @@ alert("Now processing " + Items.length + " top-level DOM nodes.");
       if (Failed.length) {
         info += "\n\n" + Strings.getString("err.addItem") + " " + Failed.length + "\n\n" + Failed.join("\n");
       }
+      Zotero.DB.commitTransaction();
+      progressWin.close();
+      // [noprogress] Zotero.hideZoteroPaneOverlay();
+      // [noprogress] Zotero.UnresponsiveScriptIndicator.enable();
       alert(info);
     }
     catch (e) {
-      alert("import: " + e.name + ": " + e.message);
+      if (progressWin) {
+        progressWin.changeHeadline(Strings.getString("import.error"));
+        progressWin.progress.startCloseTimer();
+      }
       throw e;
     }
   }
