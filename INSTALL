@@ -1,0 +1,38 @@
+ZoteroXmlImporter is not bundled as a ready-to-install .xpi file for Firefox,
+you need to manually make its directory tree known to your Firefox
+installation - by creating a "Firefox extension proxy file":
+
+1. Close Firefox
+
+2. Create a text file in the "extensions" directory under your Firefox profile
+directory, e.g. in 
+
+  ~/.mozilla/firefox/extensions/b47c11.default/extensions/
+
+with the name
+
+  ZoteroXmlImporter@jsteeb.de
+
+3. The contents of this file must be the path to the directory that contains
+the install.rdf file of ZoteroXmlImporter, e.g. 
+
+D:\User\ZoteroXmlImporter\impl\
+
+Windows users: use the drive name (CAPS) and backslashes instead of frontslashes
+(e.g. "C:\sam\workspace\toolbar\helloWorldtoolbar\").
+Remember to include the closing slash and remove any trailing whitespace.
+
+4. Restart Firefox
+
+--
+To use the importer, open Zotero and go menu "Activities" (button at the top
+right of your Zotero collections) and select "Zotero XML import".
+
+For help to locate the profile directory, see
+  http://kb.mozillazine.org/Profile_folder
+
+For a complete introduction to using plain un-packed extensions, see
+  https://developer.mozilla.org/en/setting_up_extension_development_environment
+--
+HSteeb 2010-08-27
+EOF
