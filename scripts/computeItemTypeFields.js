@@ -188,6 +188,8 @@ function Compute( resultType)
   else if (resultType == "rnc") {
     s = ""
       + "# RelaxNG schema for the \"Zotero Xml\" import format.\n"
+//TODO Zotero version
+      + "# For: Zotero 2.0\n"
       + "# Helmut Steeb 2010-08-27 hs2010\@bible2.net (insert current year)\n"
       + "# Generator: computeItemTypeFields.js\n"
       + "#\n"
@@ -196,14 +198,15 @@ function Compute( resultType)
       + "#   but the modelling is not correct, you'll get errors there.\n"
       + "# - All other terminal elements accept \"text\", no details are modelled.\n"
       + "\n\n"
-      + "zotero-import = element zotero-import {\n";
+      + "zotero-import = element zotero-import {\n(\n";
     // each itemType
     for (var j = 0; j < its.length; ++j) {
       // assumes attachment is not at j==0
+      // NOTE: this allows any order of items, even: bill, book, bill, book
       if (its[j] == "attachment") { continue; }
-      s += (j == 0 ? " " : "&" ) + " " + its[j] + "\n";
+      s += (j == 0 ? " " : "|" ) + " " + its[j] + "\n";
     }
-    s += "}\n\n";
+    s += ")+\n}\n\n";
 
     var AllFields = [];
     var FieldsProcessed = {};
@@ -232,6 +235,8 @@ function Compute( resultType)
           F.sort();
           for (var k = 0; k < F.length; ++k) {
             var fieldName = F[k];
+            // NOTE: this allows any order of fields, grouped by identical fieldname, 
+            //   but not e.g.: tag, title, tag
             s += (k == 0 ? " " : "&") + " " + fieldName + "?\n";
             if (!FieldsProcessed[fieldName]) {
               AllFields.push(fieldName);
