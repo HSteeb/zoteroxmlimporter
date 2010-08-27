@@ -90,6 +90,16 @@ file. The one used for the files above was from Zotero 2.0:
 
   https://www.zotero.org/trac/browser/extension/branches/2.0/system.sql
 
+
+Installation
+======================
+See INSTALL
+
+
+License
+======================
+See COPYING
+
 --
 HSteeb 2010-08-27
 EOF
