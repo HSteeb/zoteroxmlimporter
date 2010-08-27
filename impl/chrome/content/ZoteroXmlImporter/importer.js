@@ -26,7 +26,7 @@ Zotero.XmlImporter = {
       return xhr.responseXML;
     }
     catch (e) {
-      alert("loadXML: " + e.name + ": " + e.message);
+      alert("Loading XML file failed: " + e.name + ": " + e.message);
       throw e;
     }
   },
@@ -75,7 +75,8 @@ Zotero.XmlImporter = {
   },
 
   // For item creation, cf. Zotero.Translate.prototype._itemDone
-  import: function() {
+  import: function() 
+  {
     var file;
     var Strings = document.getElementById("xml-importer-strings");
     var progressWin;
@@ -104,7 +105,13 @@ Zotero.XmlImporter = {
       progressWin.changeHeadline(Strings.getString("import.headline"));
       progressWin.show();
 
-      var ItemDatas = Zotero.XmlParser.parse(dom);
+      var Res = Zotero.XmlParser.parse(dom);
+      if (typeof Res == "string") {
+        progressWin.close();
+        alert(Strings.getString(Res));
+        return;
+      }
+      var ItemDatas = Res;
 
       // Use of progress meter cf. zotero/fileInterface.js
       // [noprogress] := the progress meter is shown initially, but not updated (even within 10 seconds)
@@ -152,11 +159,16 @@ Zotero.XmlImporter = {
       } // for ItemDatas
 
       // inform user about result
-      var info = Strings.getString("itemsAdded").replace(/%d/g, count);
+      var info;
       if (Failed.length) {
-        info += "\n\n" + Strings.getString("err.addItem") + " " + Failed.length + "\n\n" + Failed.join("\n");
+        Zotero.DB.rollbackTransaction();
+        info = Strings.getString("itemsFailed").replace(/%d/g, Failed.length) + "\n\n" + Failed.join("\n");
+        Zotero.debug(info);
       }
-      Zotero.DB.commitTransaction();
+      else {
+        Zotero.DB.commitTransaction();
+        info = Strings.getString("itemsAdded").replace(/%d/g, count);
+      }
       // [noprogress] Zotero.hideZoteroPaneOverlay();
       // [noprogress] Zotero.UnresponsiveScriptIndicator.enable();
       // progressWin.close();
@@ -164,6 +176,7 @@ Zotero.XmlImporter = {
       progressWin.startCloseTimer();
     }
     catch (e) {
+      Zotero.DB.rollbackTransaction();
       var s = Strings.getString("import.error") + " " + e;
       Zotero.debug(s);
       if (progressWin) {

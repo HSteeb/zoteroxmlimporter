@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<zotero-import>
+<!-- For Zotero 2.0 -->
+<document>
+<text>Unknown zotero field - import must fail for this.</text>
+</document>
+<note>
+<text>Good note - must not be imported!</text>
+</note>
+</zotero-import>

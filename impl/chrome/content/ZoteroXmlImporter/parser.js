@@ -139,13 +139,13 @@ Zotero.XmlParser = {
     return {"data": Data, "tags": Tags, "notes": Notes, "links": Links};
   },
 
+  // returns array (success) or string (name of error message)
   parse: function(dom) 
   {
     try {
       var root = (dom.nodeName.toLowerCase() == this.ROOTNAME && dom) || dom.getElementsByTagName(this.ROOTNAME)[0];
       if (!root) {
-        alert(Strings.getString("err.notZoteroFile"));
-        return null;
+        return "err.notZoteroFile";
       }
 
       // ItemNodes := all child elements of root node

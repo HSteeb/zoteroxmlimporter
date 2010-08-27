@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<zotero-import>
+<!-- For Zotero 2.0 -->
+<document>
+<pages>Invalid field "pages" for document (ok e.g. for dictionaryEntry) - import must fail for this.</pages>
+</document>
+<note>
+<text>Good note - must not be imported!</text>
+</note>
+</zotero-import>
