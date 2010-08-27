@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<zotero-import2>
+<!-- For Zotero 2.0 -->
+<note>
+<text>test</text>
+<tag>Tag even</tag>
+<tag>Category B</tag>
+</note>
+<note>
+<text>Good note - must not be imported!</text>
+</note>
+</zotero-import2>
