@@ -1,0 +1,1099 @@
+# RelaxNG schema for the "Zotero Xml" import format.
+# Helmut Steeb 2010-08-27 hs2010@bible2.net (insert current year)
+# Generator: computeItemTypeFields.js
+#
+# RESTRICTIONS:
+# - only <note> is allowed child elements,
+#   but the modelling is not correct, you'll get errors there.
+# - All other terminal elements accept "text", no details are modelled.
+
+
+zotero-import = element zotero-import {
+  artwork
+& audioRecording
+& bill
+& blogPost
+& book
+& bookSection
+& case
+& computerProgram
+& conferencePaper
+& dictionaryEntry
+& document
+& email
+& encyclopediaArticle
+& film
+& forumPost
+& hearing
+& instantMessage
+& interview
+& journalArticle
+& letter
+& magazineArticle
+& manuscript
+& map
+& newspaperArticle
+& note
+& patent
+& podcast
+& presentation
+& radioBroadcast
+& report
+& statute
+& thesis
+& tvBroadcast
+& videoRecording
+& webpage
+}
+
+artwork = element artwork {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& artworkMedium?
+& artworkSize?
+& callNumber?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& rights?
+& shortTitle?
+& title?
+& url?
+& artist*
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+audioRecording = element audioRecording {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& audioRecordingFormat?
+& callNumber?
+& date?
+& extra?
+& label?
+& language?
+& libraryCatalog?
+& numberOfVolumes?
+& place?
+& rights?
+& runningTime?
+& seriesTitle?
+& shortTitle?
+& title?
+& url?
+& volume?
+& composer*
+& contributor*
+& performer*
+& wordsBy*
+& tag*
+& note*
+& link*
+}
+
+bill = element bill {
+  abstractNote?
+& accessDate?
+& billNumber?
+& code?
+& codePages?
+& codeVolume?
+& date?
+& extra?
+& history?
+& language?
+& legislativeBody?
+& rights?
+& section?
+& session?
+& shortTitle?
+& title?
+& url?
+& contributor*
+& cosponsor*
+& sponsor*
+& tag*
+& note*
+& link*
+}
+
+blogPost = element blogPost {
+  abstractNote?
+& accessDate?
+& blogTitle?
+& date?
+& extra?
+& language?
+& rights?
+& shortTitle?
+& title?
+& url?
+& websiteType?
+& author*
+& commenter*
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+book = element book {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& edition?
+& extra?
+& language?
+& libraryCatalog?
+& numPages?
+& numberOfVolumes?
+& place?
+& publisher?
+& rights?
+& series?
+& seriesNumber?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& editor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+bookSection = element bookSection {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& bookTitle?
+& callNumber?
+& date?
+& edition?
+& extra?
+& language?
+& libraryCatalog?
+& numberOfVolumes?
+& pages?
+& place?
+& publisher?
+& rights?
+& series?
+& seriesNumber?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& bookAuthor*
+& contributor*
+& editor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+case = element case {
+  abstractNote?
+& accessDate?
+& caseName?
+& court?
+& dateDecided?
+& docketNumber?
+& extra?
+& firstPage?
+& history?
+& language?
+& reporter?
+& reporterVolume?
+& rights?
+& shortTitle?
+& url?
+& author*
+& contributor*
+& counsel*
+& tag*
+& note*
+& link*
+}
+
+computerProgram = element computerProgram {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& company?
+& date?
+& extra?
+& libraryCatalog?
+& place?
+& programmingLanguage?
+& rights?
+& seriesTitle?
+& shortTitle?
+& system?
+& title?
+& url?
+& version?
+& contributor*
+& programmer*
+& tag*
+& note*
+& link*
+}
+
+conferencePaper = element conferencePaper {
+  DOI?
+& ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& conferenceName?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& pages?
+& place?
+& proceedingsTitle?
+& publisher?
+& rights?
+& series?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& editor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+dictionaryEntry = element dictionaryEntry {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& dictionaryTitle?
+& edition?
+& extra?
+& language?
+& libraryCatalog?
+& numberOfVolumes?
+& pages?
+& place?
+& publisher?
+& rights?
+& series?
+& seriesNumber?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& editor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+document = element document {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& publisher?
+& rights?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& editor*
+& reviewedAuthor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+email = element email {
+  abstractNote?
+& accessDate?
+& date?
+& extra?
+& language?
+& rights?
+& shortTitle?
+& subject?
+& url?
+& author*
+& contributor*
+& recipient*
+& tag*
+& note*
+& link*
+}
+
+encyclopediaArticle = element encyclopediaArticle {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& edition?
+& encyclopediaTitle?
+& extra?
+& language?
+& libraryCatalog?
+& numberOfVolumes?
+& pages?
+& place?
+& publisher?
+& rights?
+& series?
+& seriesNumber?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& editor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+film = element film {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& distributor?
+& extra?
+& genre?
+& language?
+& libraryCatalog?
+& rights?
+& runningTime?
+& shortTitle?
+& title?
+& url?
+& videoRecordingFormat?
+& contributor*
+& director*
+& producer*
+& scriptwriter*
+& tag*
+& note*
+& link*
+}
+
+forumPost = element forumPost {
+  abstractNote?
+& accessDate?
+& date?
+& extra?
+& forumTitle?
+& language?
+& postType?
+& rights?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+hearing = element hearing {
+  abstractNote?
+& accessDate?
+& committee?
+& date?
+& documentNumber?
+& extra?
+& history?
+& language?
+& legislativeBody?
+& numberOfVolumes?
+& pages?
+& place?
+& publisher?
+& rights?
+& session?
+& shortTitle?
+& title?
+& url?
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+instantMessage = element instantMessage {
+  abstractNote?
+& accessDate?
+& date?
+& extra?
+& language?
+& rights?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& recipient*
+& tag*
+& note*
+& link*
+}
+
+interview = element interview {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& interviewMedium?
+& language?
+& libraryCatalog?
+& rights?
+& shortTitle?
+& title?
+& url?
+& contributor*
+& interviewee*
+& interviewer*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+journalArticle = element journalArticle {
+  DOI?
+& ISSN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& issue?
+& journalAbbreviation?
+& language?
+& libraryCatalog?
+& pages?
+& publicationTitle?
+& rights?
+& series?
+& seriesText?
+& seriesTitle?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& editor*
+& reviewedAuthor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+letter = element letter {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& language?
+& letterType?
+& libraryCatalog?
+& rights?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& recipient*
+& tag*
+& note*
+& link*
+}
+
+magazineArticle = element magazineArticle {
+  ISSN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& issue?
+& language?
+& libraryCatalog?
+& pages?
+& publicationTitle?
+& rights?
+& shortTitle?
+& title?
+& url?
+& volume?
+& author*
+& contributor*
+& reviewedAuthor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+manuscript = element manuscript {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& manuscriptType?
+& numPages?
+& place?
+& rights?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+map = element map {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& edition?
+& extra?
+& language?
+& libraryCatalog?
+& mapType?
+& place?
+& publisher?
+& rights?
+& scale?
+& seriesTitle?
+& shortTitle?
+& title?
+& url?
+& cartographer*
+& contributor*
+& seriesEditor*
+& tag*
+& note*
+& link*
+}
+
+newspaperArticle = element newspaperArticle {
+  ISSN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& edition?
+& extra?
+& language?
+& libraryCatalog?
+& pages?
+& place?
+& publicationTitle?
+& rights?
+& section?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& reviewedAuthor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+note = element note {
+  \text
+& tag*
+& link*
+}
+
+patent = element patent {
+  abstractNote?
+& accessDate?
+& applicationNumber?
+& assignee?
+& country?
+& extra?
+& filingDate?
+& issueDate?
+& issuingAuthority?
+& language?
+& legalStatus?
+& pages?
+& patentNumber?
+& place?
+& priorityNumbers?
+& references?
+& rights?
+& shortTitle?
+& title?
+& url?
+& attorneyAgent*
+& contributor*
+& inventor*
+& tag*
+& note*
+& link*
+}
+
+podcast = element podcast {
+  abstractNote?
+& accessDate?
+& audioFileType?
+& episodeNumber?
+& extra?
+& language?
+& rights?
+& runningTime?
+& seriesTitle?
+& shortTitle?
+& title?
+& url?
+& contributor*
+& guest*
+& podcaster*
+& tag*
+& note*
+& link*
+}
+
+presentation = element presentation {
+  abstractNote?
+& accessDate?
+& date?
+& extra?
+& language?
+& meetingName?
+& place?
+& presentationType?
+& rights?
+& shortTitle?
+& title?
+& url?
+& contributor*
+& presenter*
+& tag*
+& note*
+& link*
+}
+
+radioBroadcast = element radioBroadcast {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& audioRecordingFormat?
+& callNumber?
+& date?
+& episodeNumber?
+& extra?
+& language?
+& libraryCatalog?
+& network?
+& place?
+& programTitle?
+& rights?
+& runningTime?
+& shortTitle?
+& title?
+& url?
+& castMember*
+& contributor*
+& director*
+& guest*
+& producer*
+& scriptwriter*
+& tag*
+& note*
+& link*
+}
+
+report = element report {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& institution?
+& language?
+& libraryCatalog?
+& pages?
+& place?
+& reportNumber?
+& reportType?
+& rights?
+& seriesTitle?
+& shortTitle?
+& title?
+& url?
+& author*
+& contributor*
+& seriesEditor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+statute = element statute {
+  abstractNote?
+& accessDate?
+& code?
+& codeNumber?
+& dateEnacted?
+& extra?
+& history?
+& language?
+& nameOfAct?
+& pages?
+& publicLawNumber?
+& rights?
+& section?
+& session?
+& shortTitle?
+& url?
+& author*
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+thesis = element thesis {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& numPages?
+& place?
+& rights?
+& shortTitle?
+& thesisType?
+& title?
+& university?
+& url?
+& author*
+& contributor*
+& tag*
+& note*
+& link*
+}
+
+tvBroadcast = element tvBroadcast {
+  abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& episodeNumber?
+& extra?
+& language?
+& libraryCatalog?
+& network?
+& place?
+& programTitle?
+& rights?
+& runningTime?
+& shortTitle?
+& title?
+& url?
+& videoRecordingFormat?
+& castMember*
+& contributor*
+& director*
+& guest*
+& producer*
+& scriptwriter*
+& tag*
+& note*
+& link*
+}
+
+videoRecording = element videoRecording {
+  ISBN?
+& abstractNote?
+& accessDate?
+& archive?
+& archiveLocation?
+& callNumber?
+& date?
+& extra?
+& language?
+& libraryCatalog?
+& numberOfVolumes?
+& place?
+& rights?
+& runningTime?
+& seriesTitle?
+& shortTitle?
+& studio?
+& title?
+& url?
+& videoRecordingFormat?
+& volume?
+& castMember*
+& contributor*
+& director*
+& producer*
+& scriptwriter*
+& tag*
+& note*
+& link*
+}
+
+webpage = element webpage {
+  abstractNote?
+& accessDate?
+& date?
+& extra?
+& language?
+& rights?
+& shortTitle?
+& title?
+& url?
+& websiteTitle?
+& websiteType?
+& author*
+& contributor*
+& translator*
+& tag*
+& note*
+& link*
+}
+
+
+tag = element tag { text }
+\text = element text { (text | ANY)* }
+ANY = element * { ANY }
+link = element link { text }
+
+DOI = element DOI { text }
+ISBN = element ISBN { text }
+ISSN = element ISSN { text }
+abstractNote = element abstractNote { text }
+accessDate = element accessDate { text }
+applicationNumber = element applicationNumber { text }
+archive = element archive { text }
+archiveLocation = element archiveLocation { text }
+artist = element artist { text }
+artworkMedium = element artworkMedium { text }
+artworkSize = element artworkSize { text }
+assignee = element assignee { text }
+attorneyAgent = element attorneyAgent { text }
+audioFileType = element audioFileType { text }
+audioRecordingFormat = element audioRecordingFormat { text }
+author = element author { text }
+billNumber = element billNumber { text }
+blogTitle = element blogTitle { text }
+bookAuthor = element bookAuthor { text }
+bookTitle = element bookTitle { text }
+callNumber = element callNumber { text }
+cartographer = element cartographer { text }
+caseName = element caseName { text }
+castMember = element castMember { text }
+code = element code { text }
+codeNumber = element codeNumber { text }
+codePages = element codePages { text }
+codeVolume = element codeVolume { text }
+commenter = element commenter { text }
+committee = element committee { text }
+company = element company { text }
+composer = element composer { text }
+conferenceName = element conferenceName { text }
+contributor = element contributor { text }
+cosponsor = element cosponsor { text }
+counsel = element counsel { text }
+country = element country { text }
+court = element court { text }
+date = element date { text }
+dateDecided = element dateDecided { text }
+dateEnacted = element dateEnacted { text }
+dictionaryTitle = element dictionaryTitle { text }
+director = element director { text }
+distributor = element distributor { text }
+docketNumber = element docketNumber { text }
+documentNumber = element documentNumber { text }
+edition = element edition { text }
+editor = element editor { text }
+encyclopediaTitle = element encyclopediaTitle { text }
+episodeNumber = element episodeNumber { text }
+extra = element extra { text }
+filingDate = element filingDate { text }
+firstPage = element firstPage { text }
+forumTitle = element forumTitle { text }
+genre = element genre { text }
+guest = element guest { text }
+history = element history { text }
+institution = element institution { text }
+interviewMedium = element interviewMedium { text }
+interviewee = element interviewee { text }
+interviewer = element interviewer { text }
+inventor = element inventor { text }
+issue = element issue { text }
+issueDate = element issueDate { text }
+issuingAuthority = element issuingAuthority { text }
+journalAbbreviation = element journalAbbreviation { text }
+label = element label { text }
+language = element language { text }
+legalStatus = element legalStatus { text }
+legislativeBody = element legislativeBody { text }
+letterType = element letterType { text }
+libraryCatalog = element libraryCatalog { text }
+manuscriptType = element manuscriptType { text }
+mapType = element mapType { text }
+meetingName = element meetingName { text }
+nameOfAct = element nameOfAct { text }
+network = element network { text }
+numPages = element numPages { text }
+numberOfVolumes = element numberOfVolumes { text }
+pages = element pages { text }
+patentNumber = element patentNumber { text }
+performer = element performer { text }
+place = element place { text }
+podcaster = element podcaster { text }
+postType = element postType { text }
+presentationType = element presentationType { text }
+presenter = element presenter { text }
+priorityNumbers = element priorityNumbers { text }
+proceedingsTitle = element proceedingsTitle { text }
+producer = element producer { text }
+programTitle = element programTitle { text }
+programmer = element programmer { text }
+programmingLanguage = element programmingLanguage { text }
+publicLawNumber = element publicLawNumber { text }
+publicationTitle = element publicationTitle { text }
+publisher = element publisher { text }
+recipient = element recipient { text }
+references = element references { text }
+reportNumber = element reportNumber { text }
+reportType = element reportType { text }
+reporter = element reporter { text }
+reporterVolume = element reporterVolume { text }
+reviewedAuthor = element reviewedAuthor { text }
+rights = element rights { text }
+runningTime = element runningTime { text }
+scale = element scale { text }
+scriptwriter = element scriptwriter { text }
+section = element section { text }
+series = element series { text }
+seriesEditor = element seriesEditor { text }
+seriesNumber = element seriesNumber { text }
+seriesText = element seriesText { text }
+seriesTitle = element seriesTitle { text }
+session = element session { text }
+shortTitle = element shortTitle { text }
+sponsor = element sponsor { text }
+studio = element studio { text }
+subject = element subject { text }
+system = element system { text }
+thesisType = element thesisType { text }
+title = element title { text }
+translator = element translator { text }
+university = element university { text }
+url = element url { text }
+version = element version { text }
+videoRecordingFormat = element videoRecordingFormat { text }
+volume = element volume { text }
+websiteTitle = element websiteTitle { text }
+websiteType = element websiteType { text }
+wordsBy = element wordsBy { text }
+
+start = zotero-import
+

@@ -184,6 +184,108 @@ function Compute( resultType)
     s += "</zotero-import>\n";
     s = s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br/>\n");
   }
+
+  else if (resultType == "rnc") {
+    s = ""
+      + "# RelaxNG schema for the \"Zotero Xml\" import format.\n"
+      + "# Helmut Steeb 2010-08-27 hs2010\@bible2.net (insert current year)\n"
+      + "# Generator: computeItemTypeFields.js\n"
+      + "#\n"
+      + "# RESTRICTIONS:\n"
+      + "# - only <note> is allowed child elements,\n"
+      + "#   but the modelling is not correct, you'll get errors there.\n"
+      + "# - All other terminal elements accept \"text\", no details are modelled.\n"
+      + "\n\n"
+      + "zotero-import = element zotero-import {\n";
+    // each itemType
+    for (var j = 0; j < its.length; ++j) {
+      // assumes attachment is not at j==0
+      if (its[j] == "attachment") { continue; }
+      s += (j == 0 ? " " : "&" ) + " " + its[j] + "\n";
+    }
+    s += "}\n\n";
+
+    var AllFields = [];
+    var FieldsProcessed = {};
+    for (var j = 0; j < its.length; ++j) {
+      var itemType = its[j];
+
+      if (itemType == "attachment") { continue; }
+
+      s += itemType + " = element " + itemType + " {\n";
+      // note
+      if (itemType == "note") { 
+        s += "  \\text\n"; // not rnc "text" but our element "text""
+      }
+      else {
+        // each field
+        var itemTypeNumber = its2n[itemType];
+        var FieldNumbers = itfn2N[itemTypeNumber];
+        if (FieldNumbers) {
+          var F = [];
+          // each itemTypeField (sorted)
+          for (var f = 0; f < FieldNumbers.length; ++f) {
+            var fieldNumber = FieldNumbers[f];
+            var fieldName = fn2s[fieldNumber];
+            F.push(fieldName);
+          }
+          F.sort();
+          for (var k = 0; k < F.length; ++k) {
+            var fieldName = F[k];
+            s += (k == 0 ? " " : "&") + " " + fieldName + "?\n";
+            if (!FieldsProcessed[fieldName]) {
+              AllFields.push(fieldName);
+              FieldsProcessed[fieldName] = true;
+            }
+          }
+        }
+
+        if (withCreators) {
+          // each creator type
+          var CreatorTypeNumbers = itctn2N[itemTypeNumber];
+          if (CreatorTypeNumbers) {
+            var CT = [];
+            // each itemTypeCreatorType (sorted)
+            for (var ct = 0; ct < CreatorTypeNumbers.length; ++ct) {
+              var creatorTypeNumber = CreatorTypeNumbers[ct];
+              var creatorTypeName = ctn2s[creatorTypeNumber];
+              CT.push(creatorTypeName);
+            }
+            CT.sort();
+            for (var k = 0; k <CT.length; ++k) {
+              var creatorTypeName = CT[k];
+              s += "& " + creatorTypeName + "*\n";
+              if (!FieldsProcessed[creatorTypeName]) {
+                AllFields.push(creatorTypeName);
+                FieldsProcessed[creatorTypeName] = true;
+              }
+            }
+          }
+        } // withCreators
+      } // else each field
+
+      s += "& tag*\n";
+      if (itemType != "note") {
+        s += "& note*\n";
+      }
+      s += "& link*\n";
+      s += "}\n\n";
+    } // itemTypes
+
+    s += "\n";
+    s += "tag = element tag { text }\n";
+    s += "\\text = element text { (text | ANY)* }\n";
+    s += "ANY = element * { ANY }\n";
+    s += "link = element link { text }\n";
+    s += "\n";
+
+    AllFields.sort();
+    for (var f = 0, len = AllFields.length; f < len; ++f) {
+      s += AllFields[f] + " = element " + AllFields[f] + " { text }\n";
+    }
+    s += "\nstart = zotero-import\n";
+    s = "<pre>\n" + s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "\n") + "</pre>\n";
+  }
   else {
     s = "Unknown result type";      
   }
