@@ -68,6 +68,10 @@ Features, Restrictions
 
 - see TODO in the code
 
+- impl/install.rdf declares the plugin to be for Zotero <= 2.0.* 
+  and Firefox <= 3.6.*.  In case the importer is ignored since your Zotero or
+  Firefox version is newer, just try to adapt the version numbers.
+  
 
 Import format
 ======================
